@@ -14,7 +14,6 @@ You need your own [Infura API key](https://developer.metamask.io/) to use this s
 ## .env
 ```
 RPC_URL="https://mainnet.infura.io/v3/YOUR_KEY"
-CONTRACT_ADDRESS="0x9a98E6B60784634AE273F2FB84519C7F1885AeD2"
 ```
 
 ## Example output
