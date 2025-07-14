@@ -19,3 +19,6 @@ CONTRACT_ADDRESS="0x9a98E6B60784634AE273F2FB84519C7F1885AeD2"
 
 ## Example output
 An example output has been included in the files (`moca_stakers_top_list.txt`).
+
+## Note
+This list might miss some addresses that have received an airdrop, but never (un)staked any tokens. This script only fetches the addresses that have interacted with the staking contract.
