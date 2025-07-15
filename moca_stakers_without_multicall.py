@@ -11,10 +11,9 @@ load_dotenv()
 
 # Configuration
 RPC_URL = os.getenv("RPC_URL")
-CONTRACT_ADDRESS = "0x9a98E6B60784634AE273F2FB84519C7F1885AeD2"  # MOCA Staking Contract Address
+CONTRACT_ADDRESS = "0x9a98E6B60784634AE273F2FB84519C7F1885AeD2"  # MOCA Staking Contract
 CONTRACT_ABI = json.loads('''
-[{"inputs":[{"internalType":"address","name":"mocaToken","type":"address"},{"internalType":"uint256","name":"startTime_","type":"uint256"},{"internalType":"address","name":"owner","type":"address"},{"internalType":"address","name":"updater","type":"address"}],"stateMutability":"nonpayable","type":"constructor"},{"inputs":[{"internalType":"address","name":"target","type":"address"}],"name":"AddressEmptyCode","type":"error"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"AddressInsufficientBalance","type":"error"},{"inputs":[],"name":"EnforcedPause","type":"error"},{"inputs":[],"name":"ExpectedPause","type":"error"},{"inputs":[],"name":"FailedInnerCall","type":"error"},{"inputs":[{"internalType":"address","name":"owner","type":"address"}],"name":"OwnableInvalidOwner","type":"error"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"OwnableUnauthorizedAccount","type":"error"},{"inputs":[{"internalType":"address","name":"token","type":"address"}],"name":"SafeERC20FailedOperation","type":"error"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"previousOwner","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferStarted","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"previousOwner","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"address","name":"account","type":"address"}],"name":"Paused","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"user","type":"address"},{"indexed":false,"internalType":"uint256","name":"amount","type":"uint256"}],"name":"Staked","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address[]","name":"users","type":"address[]"},{"indexed":true,"internalType":"uint256[]","name":"amounts","type":"uint256[]"}],"name":"StakedBehalf","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"address","name":"account","type":"address"}],"name":"Unpaused","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"user","type":"address"},{"indexed":false,"internalType":"uint256","name":"amount","type":"uint256"}],"name":"Unstaked","type":"event"},{"inputs":[],"name":"acceptOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"newUpdater","type":"address"}],"name":"changeUpdater","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"getMocaToken","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"getPoolCumulativeWeight","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"getPoolLastUpdateTimestamp","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"getStartTime","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"getTotalCumulativeWeight","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"getTotalStaked","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"getUpdater","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"user","type":"address"}],"name":"getUser","outputs":[{"components":[{"internalType":"uint256","name":"amount","type":"uint256"},{"internalType":"uint256","name":"cumulativeWeight","type":"uint256"},{"internalType":"uint256","name":"lastUpdateTimestamp","type":"uint256"}],"internalType":"struct SimpleStaking.Data","name":"","type":"tuple"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"user","type":"address"}],"name":"getUserCumulativeWeight","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"pause","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"paused","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"pendingOwner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"renounceOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"stake","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address[]","name":"users","type":"address[]"},{"internalType":"uint256[]","name":"amounts","type":"uint256[]"}],"name":"stakeBehalf","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"unpause","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"unstake","outputs":[],"stateMutability":"nonpayable","type":"function"}]
-''')
+[{"inputs":[],"name":"getMocaToken","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"getTotalStaked","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"paused","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"user","type":"address"}],"name":"getUser","outputs":[{"components":[{"internalType":"uint256","name":"amount","type":"uint256"},{"internalType":"uint256","name":"cumulativeWeight","type":"uint256"},{"internalType":"uint256","name":"lastUpdateTimestamp","type":"uint256"}],"internalType":"struct SimpleStaking.Data","name":"","type":"tuple"}],"stateMutability":"view","type":"function"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"user","type":"address"},{"indexed":false,"internalType":"uint256","name":"amount","type":"uint256"}],"name":"Staked","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address[]","name":"users","type":"address[]"},{"indexed":true,"internalType":"uint256[]","name":"amounts","type":"uint256[]"}],"name":"StakedBehalf","type":"event"}]''')
 
 # ERC20 ABI to query token decimals and name
 ERC20_ABI = [
@@ -37,26 +36,21 @@ ERC20_ABI = [
 # Initialize Web3
 w3 = Web3(Web3.HTTPProvider(RPC_URL))
 print(f"Connected: {w3.is_connected()}")
-print(f"Chain ID: {w3.eth.chain_id}")
-print(f"Current Date/Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-
-# Initialize staking contract
 contract = w3.eth.contract(address=Web3.to_checksum_address(CONTRACT_ADDRESS), abi=CONTRACT_ABI)
 
 # Initialize variables with default values to prevent NameError
 moca_token = None
-token_name = "MOCA"  # Default to MOCA based on contract
+token_name = "MOCA"
 decimals = 18  # Default to 18 if token query fails
-total_staked = 0.0 # Default to 0.0
-is_paused = False # Default to False
+total_staked = 0
+is_paused = False
 
 # Query staked token address
 try:
     moca_token = contract.functions.getMocaToken().call()
     print(f"Staked Token Address: {moca_token}")
 except Exception as e:
-    print(f"getMocaToken error: {e}")
-    # moca_token remains None
+    print(f"getMocaToken error: {e}")  # moca_token remains None
 
 # Query token name and decimals
 if moca_token:
@@ -77,16 +71,14 @@ try:
     total_staked = contract.functions.getTotalStaked().call() / (10**decimals)
     print(f"Total Staked (All Users): {total_staked:,.2f} {token_name}")
 except Exception as e:
-    print(f"getTotalStaked error: {e}")
-    # total_staked remains 0.0
+    print(f"getTotalStaked error: {e}")  # total_staked remains 0
 
 # Verify paused status
 try:
     is_paused = contract.functions.paused().call()
     print(f"Contract Paused: {is_paused}")
 except Exception as e:
-    print(f"paused error: {e}")
-    # is_paused remains False
+    print(f"paused error: {e}")# is_paused remains False
 
 # Load staker addresses from previous run if available
 stakers_file = "staker_addresses.json"
@@ -183,19 +175,24 @@ if not os.path.exists(balances_file):
                 json.dump(stakers, f)
             print(f"Saved partial balances to {balances_file}")
 
+total_balance_file = 0
 # Save final balances
 with open(balances_file, "w") as f:
     json.dump(stakers, f)
+
+    # Calculate total balance from staker_balances.json
+    for value in stakers.values():
+        total_balance_file += value
+
 print(f"Saved staker balances to {balances_file}")
 
-# Sort stakers by balance (descending)
+# Sort stakers by balance (descending) & filter positive balance
 sorted_stakers = sorted(stakers.items(), key=lambda x: x[1], reverse=True)
 
 # Filter for stakers with positive balance
 stakers_with_positive_balance = [
     (address, balance) for address, balance in sorted_stakers if balance > 0
 ]
-
 
 # Save to file
 output_file = "moca_stakers_top_list.txt"
@@ -204,9 +201,9 @@ with open(output_file, 'w') as f:
     f.write(f"${token_name} Stakers Top List\n")
     f.write(f"Generated on: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
     f.write(f"Contract Address: {CONTRACT_ADDRESS}\n")
-    f.write(f"Token Name: ${token_name}\n")
     f.write(f"Total Staked: {total_staked:,.2f} ${token_name}\n")
-    f.write(f"Contract Paused: {is_paused}\n")
+    f.write(f"Total Staked in List: {total_balance_file:,.2f} ${token_name}\n")
+    f.write(f"Difference: {total_staked - total_balance_file:,.2f} ${token_name}\n")
     f.write(f"Total Stakers: {len(stakers_with_positive_balance)}\n")
     f.write("\nRank | Wallet Address | Staked Balance (${token_name})\n".format(token_name=token_name))
     f.write("-" * 60 + "\n")
